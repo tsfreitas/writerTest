@@ -1,6 +1,7 @@
 package com.tsfreitas.writeTest.business;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -47,12 +48,18 @@ public class MyBusiness {
 	}
 
 	private void writeIt(List<String> content) throws IOException {
+
+
+
 		for (Entry<String, Writer> entry : writers.entrySet()) {
 			long aTime = System.currentTimeMillis();
 			String writerName = entry.getKey();
 			System.out.println("Testando writer: " + writerName);
 
-			entry.getValue().writeFile(writerName, content);
+			for (int i = 0; i <10; i++) {
+				entry.getValue().writeFile(writerName, content);
+			}
+
 
 			long seconds = TimeUnit.MILLISECONDS.toSeconds((System.currentTimeMillis() - aTime));
 			System.out.println(String.format("Writer %s tempo %d segundos", writerName, seconds));

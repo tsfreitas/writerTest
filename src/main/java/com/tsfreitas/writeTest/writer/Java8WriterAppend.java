@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class Java8WriterAppend implements Writer {
 
 	@Override
